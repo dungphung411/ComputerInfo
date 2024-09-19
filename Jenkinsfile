@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage('Git Checkout ') {
             steps {
-                git 'https://github.com/shubnimkar/dotnet-demoapp_devops.git'
+                git 'https://github.com/dungphung411/ComputerInfo.git'
             }
         }
         
@@ -28,7 +28,7 @@ pipeline {
         stage('Sonarqube Analysis') {
             steps {
                 
-                withSonarQubeEnv('sonarqube'){
+                withSonarQubeEnv('sonar'){
                   sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=dotnet-demo \
                     -Dsonar.projectKey=dotnet-demo ''' 
                }
