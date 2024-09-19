@@ -28,7 +28,7 @@ pipeline {
         stage('Sonarqube Analysis') {
             steps {
                 
-                withSonarQubeEnv('sonarqube'){
+                withSonarQubeEnv('sonar-scanner'){
                   sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=dotnet-demo \
                     -Dsonar.projectKey=dotnet-demo ''' 
                }
