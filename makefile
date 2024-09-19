@@ -26,14 +26,14 @@ lint: ## 🔎 Lint & format, will not fix but sets exit code on error
 	dotnet format --verbosity diag ./src
 
 image: ## 🔨 Build container image from Dockerfile 
-	docker build . --file build/Dockerfile \
+	sudo docker build . --file build/Dockerfile \
 	--tag $(IMAGE_REG)/$(IMAGE_REPO):$(IMAGE_TAG)
 
-push: ## 📤 Push container image to registry 
-	docker push $(IMAGE_REG)/$(IMAGE_REPO):$(IMAGE_TAG)
+push: ## 📤 Push container image to registry       
+	sudo docker push $(IMAGE_REG)/$(IMAGE_REPO):$(IMAGE_TAG)
 
 run: ## 🏃‍ Run locally using Dotnet CLI
-	dotnet watch --project $(SRC_DIR)/dotnet-demoapp.csproj
+	sudo dotnet watch --project $(SRC_DIR)/dotnet-demoapp.csproj
 
 deploy: ## 🚀 Deploy to Azure Container App 
 	az group create --resource-group $(AZURE_RES_GROUP) --location $(AZURE_REGION) -o table
