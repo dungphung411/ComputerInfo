@@ -65,7 +65,7 @@ pipeline {
         
         stage('Docker Deploy') {
             steps {
-                sh "docker run -d -p 5000:5000 shubnimkar/dotnet-demoapp"
+                sh "docker run -d -p 5000:5000 mdngphg411/dotnet-demoapp"
             }
         }
         
