@@ -1,5 +1,4 @@
 
-
 ARG IMAGE_BASE=6.0-alpine
 
 # Build image has SDK and tools (Linux)
