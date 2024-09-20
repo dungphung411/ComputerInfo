@@ -14,9 +14,9 @@
 ## Config jenkins and setting the enviroment
 <break>
         1. Run jenkins  on node 1 and access Jenkins( check systemctl status jenkins for more detail). Install nessesary plugin <br>
-        2. Make a deploy node: 
-            - Go to Dashboard - Manage Jenkins - Nodes 
-            - Choose New node:  
-                    + Enter Node name 
-                    + Tick "Permanent Agent" then Next
+        2. Make a deploy node: \
+            - Go to Dashboard - Manage Jenkins - Nodes \
+            - Choose New node:  \
+                    + Enter Node name \
+                    + Tick "Permanent Agent" then Next \
                     + 
