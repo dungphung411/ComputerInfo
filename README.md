@@ -1,13 +1,13 @@
 # This tutorial is solely for the CICD.
 ## Procedure :
 <break>
-        Create a image on docker node 1 , push it to docker hub <break> 
+        Create a image on docker node 1 , push it to docker hub. <br> 
         Pull image to node 2, and deploy it.    
 
 ## Pre requirement:
 <break>
-        Docker install on both machine <break> 
-        Install java on both machine. Note that the java version must be the same for them <break> 
+        Docker install on both machine. <break> 
+        Install java on both machine. Note that the java version must be the same for them. <break> 
         Jenkins install on node 1: you can use package or run docker container 
     
 
