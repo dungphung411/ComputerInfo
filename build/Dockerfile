@@ -5,8 +5,8 @@ ARG IMAGE_BASE=6.0-alpine
 FROM mcr.microsoft.com/dotnet/sdk:$IMAGE_BASE as build
 WORKDIR /build
 
-# Copy project source files
-COPY src ./src
+# Copy project source files     , currently only work for linux (docker2node is your jenkins pipeline name). Window or Linux still can use ' COPY src ./src '
+COPY src /var/lib/jenkins/workspace/docker2node/src      
 
 # Restore, build & publish
 WORKDIR /build/src
