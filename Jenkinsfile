@@ -1,74 +1,49 @@
+IMAGE_REG = "docker.io"
+IMAGE_REPO ="mdngphg411/docker2node"
+IMAGE_TAG ="latest"
+runninguser = 'root'
+
+
 pipeline {
-    agent any
-    
-    tools{
-        
-        jdk 'jdk17'
-    }
-    
-    environment {
-        
-        SCANNER_HOME= tool 'sonar-scanner'
-    }
-
+    agent { label 'Main'}  
     stages {
-        stage('Git Checkout ') {
-            steps {
-                git 'https://github.com/dungphung411/ComputerInfo.git'
+        stage('Gitcheck') {
+            steps{
+                git branch: 'main', changelog: false, poll: false, url: 'https://github.com/dungphung411/ComputerInfo.git'
+                sh 'sudo pwd'
+                sh 'chmod -R 777 /var/lib/jenkins/workspace/docker2node'
+                echo 'Git check successfully'
             }
         }
         
-        stage('OWASP Dependency Check') {
-            steps {
-                dependencyCheck additionalArguments: ' --scan ./ ', odcInstallation: 'DP'
-                    dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+        stage('Docker build') {
+            steps{
+                sh(script:""" sudo su  $runninguser -c  "docker build . --file  build/Dockerfile --tag ${IMAGE_REG}/${IMAGE_REPO}:${IMAGE_TAG}" """,label:'Build docker image from dockerfile')
+                sh 'sudo docker image ls '
+                sh 'docker builder prune -y || true '
             }
         }
-        
-        stage('Sonarqube Analysis') {
-            steps {
-                
-                withSonarQubeEnv('sonar'){
-                  sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=dotnet-demo \
-                    -Dsonar.projectKey=dotnet-demo ''' 
-               }
-                
-               
+        stage('Docker push') {
+            agent {label 'Main'}
+            steps{ 
+                sh(script:""" sudo su  $runninguser -c 'sudo docker push ${IMAGE_REG}/${IMAGE_REPO}:${IMAGE_TAG}' """, label: 'push image to the dockerhub')
+                echo ' Pushing successfully'
             }
         }
-        
-        stage('Docker Build & Tag') {
-            steps {
-                script{
-                    withDockerRegistry(credentialsId: 'docker-cred') {
-                        sh "make image"
-                    }
-                }
+        stage('Docker pull') {
+            agent { label '10.32.4.107' }
+            steps{
+                sh(script:""" sudo su - $runninguser -c  'sudo docker pull ${IMAGE_REPO}:${IMAGE_TAG}' """, label: 'Pull image by node Docker 10.32.4.107' )
+                sh 'sudo docker image ls'
             }
         }
-
-        stage('Trivy Image Scan') {
-            steps {
-                sh "trivy image -f table shubnimkar/dotnet-demoapp"
+        stage('Docker deploy'){
+            agent { label '10.32.4.107' }
+            steps{
+                sh(script:""" sudo su - $runninguser -c  'sudo docker run -d -p 5000:5000 --name Computercheck ${IMAGE_REPO}' """, label: 'Pull image by node Docker 10.32.4.107' )
+                sh 'sudo docker ps -a '
             }
-        }
-        
-        stage('Docker Push') {
-            steps {
-                script{
-                    withDockerRegistry(credentialsId: 'docker-cred') {
-                        sh "make push"
-                    }
-                }
-            }
-        }
-        
-        stage('Docker Deploy') {
-            steps {
-                sh "docker run -d -p 5000:5000 mdngphg411/dotnet-demoapp"
-            }
-        }
-        
-        
+         }
     }
 }
+    
