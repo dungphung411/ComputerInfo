@@ -6,9 +6,8 @@
 # Pre requirement:
 
         Docker install on both machine 
-        Install java on both machine.   <span style="color: red;"> Note that the java version must be the same for them </span>
-        This is a <span style="color: red;">red</span> word.
-
+        Install java on both machine. Note that the java version must be the same for them 
+        Jenkins install on node 1: you can use package or run docker container 
     
 
         
