@@ -22,4 +22,7 @@
 - Apply and save
 3. *Create a pipeline*
 - New Iteam - Pipeline - Give it a name 
-- 
+- Tick discard old build - Better max build to keep is lower than 3 
+- Pipeline - Choose pipeline from SCM - Git - Enter the repo URL - no credential - choose brach 'Work-on-2-node' - Apply and save
+
+## The Jenkinsfile modifies
