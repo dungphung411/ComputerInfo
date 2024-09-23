@@ -10,14 +10,14 @@
     
 
 ## Config jenkins and setting the enviroment
-1. Run jenkins  on node 1 and access Jenkins
+1. *Run jenkins  on node 1 and access Jenkins*
 - Check systemctl status jenkins for more detail. 
 - Install nessesary plugin 
 - Continue to install SonarQube, SonnarScaner, Docker, ... plugin  
-2. Make a deploy node: <br>
-            - Go do Dashboard - Manage Jenkins - Sercurity - Scroll dowm untill you see 'Agents' - Choose 'fixed tcp port' and enter the port 8889 - Apply and save. <br>
-            - Go back to Dashboard - Manage Jenkins - Nodes <br>
-            - Choose New node:  <br>
-                    + Enter Node name <br>
-                    + Tick "Permanent Agent" then Next <br>
+2. *Make a deploy node:*
+- Go do Dashboard - Manage Jenkins - Sercurity - Scroll dowm untill you see 'Agents' - Choose 'fixed tcp port' and enter the port 8889 - Apply and save.
+- Go back to Dashboard - Manage Jenkins - Nodes 
+- Choose New node: 
++ Enter Node name 
++ Tick "Permanent Agent" then Next
                     + 
