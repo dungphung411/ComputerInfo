@@ -4,6 +4,7 @@
 -  Pull image to node 2, and deploy it.    
 
 ## Pre requirement:
+- System using here is linux ubuntu. If you want to use window, consider changing the Jenkinsfile 
 - Docker install on both machine. 
 - Install java on both machine. Note that the java version **MUST** be the same for them. (Rec 17, 21)  
 - Jenkins install on node 1
