@@ -19,6 +19,7 @@
 - Go back to Dashboard - Manage Jenkins - Nodes 
 - Choose New node:   Enter Node name - Tick "Permanent Agent" then Next - **MUST** provide label for your node 
     ![nodes](nodes.png)
+- Configure the Build-in Node - Change the label of it to 'Main'
 - Apply and save
 3. *Create a pipeline*
 - New Iteam - Pipeline - Give it a name 
@@ -30,5 +31,5 @@
 - There're 2 label in the jenkinsfile: 
 -           agent {label 'Main'} 
             agent { label '10.32.4.107' }
-- Main is the jenkins server aka node 1, 10.32.4.107 is the node 2 
-- Change the name to the label you name before.
+- Main is the jenkins server aka node 1 aka the build in node, 10.32.4.107 is the node 2 
+- Change the name to the label you named before.
