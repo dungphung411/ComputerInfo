@@ -31,4 +31,4 @@
 -           agent {label 'Main'} 
             agent { label '10.32.4.107' }
 - Main is the jenkins server aka node 1, 10.32.4.107 is the node 2 
-- Change the name to where you like.
+- Change the name to the label you name before.
