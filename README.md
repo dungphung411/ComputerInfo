@@ -26,3 +26,7 @@
 - Pipeline - Choose pipeline from SCM - Git - Enter the repo URL - no credential - choose brach 'Work-on-2-node' - Apply and save
 
 ## The Jenkinsfile modifies
+- Include label agent in each stage is a must 
+- There're 2 label in the jenkinsfile:
+                agent {label 'Main'} 
+                agent { label '10.32.4.107' }
