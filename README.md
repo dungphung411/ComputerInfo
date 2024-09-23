@@ -28,5 +28,5 @@
 ## The Jenkinsfile modifies
 - Include label agent in each stage is a must 
 - There're 2 label in the jenkinsfile:
-                agent {label 'Main'} 
-                agent { label '10.32.4.107' }
+              -  agent {label 'Main'} 
+              -  agent { label '10.32.4.107' }
