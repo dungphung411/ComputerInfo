@@ -19,3 +19,7 @@
 - Go back to Dashboard - Manage Jenkins - Nodes 
 - Choose New node:   Enter Node name - Tick "Permanent Agent" then Next - **MUST** provide label for your node 
     ![nodes](nodes.png)
+- Apply and save
+3. *Create a pipeline*
+- New Iteam - Pipeline - Give it a name 
+- 
