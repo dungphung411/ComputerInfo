@@ -18,4 +18,4 @@
 - Go do Dashboard - Manage Jenkins - Sercurity - Scroll dowm untill you see 'Agents' - Choose 'fixed tcp port' and enter the port 8889 - Apply and save.
 - Go back to Dashboard - Manage Jenkins - Nodes 
 - Choose New node:   Enter Node name - Tick "Permanent Agent" then Next - **MUST** provide label for your node 
-                    ![nodes]()
+    ![nodes](nodes.png)
