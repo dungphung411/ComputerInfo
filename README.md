@@ -18,6 +18,7 @@ The app has several basic pages accessed from the top navigation menu, some of w
 
 - Be using Linux, WSL or MacOS, with bash, make etc
 - Window is ok too, install java, install make.
+- Plugin Dependency OWASP should be version 8.4.0 to work perfectly, idk why 
 - [.NET 6](https://docs.microsoft.com/en-us/dotnet/core/install/linux) - for running locally, linting, running tests etc
 - [Docker](https://docs.docker.com/get-docker/) - for running as a container, or image build and push
 
