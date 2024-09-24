@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage('Git Checkout ') {
             steps {
-                git 'https://github.com/dungphung411/ComputerInfo.git'
+                git branch: 'main', changelog: false, poll: false, url: 'https://github.com/dungphung411/ComputerInfo.git'
             }
         }
         
@@ -29,8 +29,8 @@ pipeline {
             steps {
                 
                 withSonarQubeEnv('sonar'){
-                  sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=dotnet-demo \
-                    -Dsonar.projectKey=dotnet-demo ''' 
+                  sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=ComputerInfo \
+                    -Dsonar.projectKey=DemoInfocheck ''' 
                }
                 
                
