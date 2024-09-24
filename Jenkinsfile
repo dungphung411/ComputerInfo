@@ -49,7 +49,7 @@ pipeline {
 
         stage('Trivy Image Scan') {
             steps {
-                sh "trivy image -f table shubnimkar/dotnet-demoapp"
+                sh "trivy image -f table mdngphg411/dotnet-demoapp"
             }
         }
         
@@ -65,7 +65,7 @@ pipeline {
         
         stage('Docker Deploy') {
             steps {
-                sh "docker run -d -p 5000:5000 mdngphg411/dotnet-demoapp"
+                sh "sudo docker run -d -p 5000:5000 mdngphg411/dotnet-demoapp"
             }
         }
         
