@@ -22,6 +22,7 @@ pipeline {
             steps {
                 dependencyCheck additionalArguments: ' --scan ./ ', odcInstallation: 'DP'
                     dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+                sh 'sudo cat dependency-check-report.xml'
             }
         }
         
