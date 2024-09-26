@@ -18,6 +18,7 @@ pipeline {
         
         stage('Docker build') {
             steps{
+               // sh 'sudo docker login -u your_user_name -p your_password' enter it and run, and dont reveal your username and password to public
                 sh(script:""" sudo su  $runninguser -c  "docker build . --file  build/Dockerfile --tag ${IMAGE_REG}/${IMAGE_REPO}:${IMAGE_TAG}" """,label:'Build docker image from dockerfile')
                 sh 'sudo docker image ls '
                 sh 'docker builder prune -y || true '
